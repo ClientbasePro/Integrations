@@ -10,7 +10,7 @@ function GetWialonData($someService, $params, $toGETparams) {
   $url = WIALON_URL;
   $url .= $someService;
   $url .= ($params) ? '&params='.json_encode($params) : '&params={}';
-  if ($toGETparams) $url .= http_build_query($toGETparams);
+  if ($toGETparams) $url .= '&'.http_build_query($toGETparams);
   return file_get_contents($url);
 }
 
