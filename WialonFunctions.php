@@ -10,8 +10,10 @@ function GetWialonData($someService, $params, $toGETparams) {
   $url = WIALON_URL;
   $url .= $someService;
   $url .= ($params) ? '&params='.json_encode($params) : '&params={}';
-  if ($toGETparams) $url .= '&'.http_build_query($toGETparams);
-  return file_get_contents($url);
+  if ($toGETparams) $url .= '&'.http_build_query($toGETparams);  
+  $options = array('http'=>array("Content-Type: application/x-www-form-urlencoded"));
+  $context = stream_context_create($options);
+  return file_get_contents($url, false, $context);
 }
 
   // функция возвращает Wialon Session ID
