@@ -20,6 +20,6 @@
 		"psr-4":{
 			"ClientbasePro\\": "Integrations/"
 		},
-		"files": ["TelphinFunctions.php","WialonFunctions.php","IQSMSFunctions.php"]
+		"files": ["TelphinFunctions.php","WialonFunctions.php","IQSMSFunctions.php","YandexTelephonyFunctions.php"]
     }
 }
