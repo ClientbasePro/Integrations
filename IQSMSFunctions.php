@@ -24,7 +24,7 @@ function IQSMS_SendSMS($phone, $text, $sender, $needSave=1, $data='') {
 	$ins['f'.SMSLOG_FIELD_PHONE] = $phone;
     $ins['f'.SMSLOG_FIELD_TEXT] = $text;
 	if ($data) foreach ($data as $fieldId=>$value) $ins[$fieldId] = $value;
-    data_insert(SMSLOG_TABLE, EVENTS_ENABLE, $ins);  
+    $tmp .= ';'.data_insert(SMSLOG_TABLE, EVENTS_ENABLE, $ins);
   }  
   return $tmp;
 }
