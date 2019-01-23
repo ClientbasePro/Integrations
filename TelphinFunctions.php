@@ -19,7 +19,7 @@ function GetTelphinToken() {
     ));
     if ($response=curl_exec($curl)) {
       $answer = json_decode($response);
-      if ('401'!=$answer->status && 'Unauthorized'!=$answer->message) return $token;                    
+      if ('401'!=$answer->status && 'Unauthorized'!=$answer->message) return $token;
     }
     curl_close($curl);
   }
@@ -33,8 +33,8 @@ function GetTelphinToken() {
     CURLOPT_POSTFIELDS => 'grant_type=client_credentials&client_id='.TELPHIN_APP_ID.'&client_secret='.TELPHIN_APP_SECRET
   ));
         // получаем сам токен
-  if ($response=curl_exec($curl)) {        
-    $answer = json_decode($response);    
+  if ($response=curl_exec($curl)) {
+    $answer = json_decode($response);
     if ($answer->access_token && 'Bearer'==$answer->token_type) $token = $answer->access_token;
   }
   curl_close($curl);
