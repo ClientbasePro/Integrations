@@ -52,14 +52,14 @@ function GetYTToken($userId='') {
     CURLOPT_POSTFIELDS => 'grant_type=client_credentials&client_id='.YT_API_KEY.'&client_secret='.$extension
   ));
         // получаем сам токен
-  if ($response=curl_exec($curl)) {        
-    $answer = json_decode($response);    
+  if ($response=curl_exec($curl)) {
+    $answer = json_decode($response);
     if ($answer->access_token && 'bearer'==$answer->token_type) $token = $answer->access_token;
   }
   curl_close($curl);
-  if ($token) { 
+  if ($token) {
     data_insert(YTTOKENS_TABLE, EVENTS_ENABLE, array('f'.YTTOKENS_FIELD_TOKEN=>$token, 'f'.YTTOKENS_FIELD_DATE=>date("Y-m-d H:i:s",time()+$answer->expires_in), 'f'.YTTOKENS_FIELD_EXTENSION=>$extension, 'f'.YTTOKENS_FIELD_USER=>$userId)); 
-    return $token; 
+    return $token;
   }
   return false;
 }
@@ -104,14 +104,6 @@ function GetYTCalls($token='', $params='') {
   curl_close($curl);
   return false;
 }
-
-
-
-
-
-
-
-
 
 
 
