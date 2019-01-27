@@ -40,7 +40,6 @@ function IQSMS_GetSMSStatus($messageId='') {
   return $tmp;
 }
 
-
     // возвращает список доступных подписей в СМС
 function IQSMS_GetSenders() {
   $url = IQSMS_URL.'senders?&login='.IQSMS_API_LOGIN.'&password='.IQSMS_API_PASSWORD;
