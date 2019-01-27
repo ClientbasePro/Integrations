@@ -51,9 +51,4 @@ function IQSMS_GetSenders() {
   return $tmp;
 }
 
-
-
-
-
-
 ?>
